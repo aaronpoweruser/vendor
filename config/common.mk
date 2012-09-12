@@ -72,6 +72,11 @@ PRODUCT_COPY_FILES += \
     vendor/cna/prebuilt/common/etc/cron/cron.daily/01clear_cache:system/etc/cron/cron.daily/01clear_cache \
     vendor/cna/prebuilt/common/etc/cron/cron.weekly/01clear_cache:system/etc/cron/cron.weekly/01clear_cache 
 
+#paronoid settings
+PRODUCT_COPY_FILES += \
+    vendor/cna/prebuilt/common/etc/paranoid/backup.conf:system/etc/paranoid/backup.conf \
+    vendor/cna/prebuilt/common/etc/paranoid/properties.conf:system/etc/paranoid/properties.conf 
+
 # Required packages
 PRODUCT_PACKAGES += \
     Camera \
@@ -93,12 +98,14 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
-    PhaseBeam
+    PhaseBeam 
 
 # Extra Optional packages
 PRODUCT_PACKAGES += \
-    Trebuchet
-
+    Trebuchet \
+    TitaniumBackup \
+    ParonoidPrefrences \
+    ParonoidWallpapers 
 # Extra tools
 PRODUCT_PACKAGES += \
     openvpn \
@@ -112,9 +119,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/common
 # T-Mobile theme engine
 include vendor/cna/config/themes_common.mk
 
-PRODUCT_VERSION_MAJOR = 3
-PRODUCT_VERSION_MINOR = 5
-PRODUCT_VERSION_MAINTENANCE = 0
+PRODUCT_VERSION_MAJOR = 0
+PRODUCT_VERSION_MINOR = 9
+PRODUCT_VERSION_MAINTENANCE = 9
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JRO03L
 
@@ -127,7 +134,7 @@ else
             ro.cnaversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.cnaversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-UNOFFICIAL
+            ro.modversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
     endif
 endif
 
@@ -140,6 +147,6 @@ else
             ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)-UNOFFICIAL
+            ro.modversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
     endif
 endif
