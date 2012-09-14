@@ -103,7 +103,6 @@ PRODUCT_PACKAGES += \
 # Extra Optional packages
 PRODUCT_PACKAGES += \
     Trebuchet \
-    TitaniumBackup \
     ParonoidPrefrences \
     ParonoidWallpapers 
 # Extra tools
@@ -119,9 +118,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/common
 # T-Mobile theme engine
 include vendor/cna/config/themes_common.mk
 
-PRODUCT_VERSION_MAJOR = 0
-PRODUCT_VERSION_MINOR = 9
-PRODUCT_VERSION_MAINTENANCE = 9
+PRODUCT_VERSION_MAJOR = 1
+PRODUCT_VERSION_MINOR = 0
+PRODUCT_VERSION_MAINTENANCE = 0
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JRO03L
 
@@ -134,7 +133,8 @@ else
             ro.cnaversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.cnaversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
+            ro.cnaversion=Cookies&Cream-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
+    #NIGHTLY-$(shell date +%m%d)
     endif
 endif
 
@@ -147,6 +147,7 @@ else
             ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
+            ro.modversion=Cookies&Cream-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
+    #NIGHTLY-$(shell date +%m%d)
     endif
 endif
