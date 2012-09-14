@@ -134,7 +134,7 @@ else
             ro.cnaversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
+            ro.cnaversion=Cookies&Cream-NIGHTLY-$(shell date +%m%d%Y)
     endif
 endif
 
