@@ -103,8 +103,8 @@ PRODUCT_PACKAGES += \
 # Extra Optional packages
 PRODUCT_PACKAGES += \
     Trebuchet \
-    ParonoidPrefrences \
-    ParonoidWallpapers 
+    ParanoidPrefrences \
+    ParanoidWallpapers 
 # Extra tools
 PRODUCT_PACKAGES += \
     openvpn \

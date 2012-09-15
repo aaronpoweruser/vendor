@@ -12,7 +12,7 @@
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_MODULE := ParonoidWallpapers
+LOCAL_MODULE := ParanoidWallpapers
 LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 
 LOCAL_MODULE_CLASS := APPS
