@@ -1,11 +1,2 @@
-add_lunch_combo cna_crespo-userdebug
-add_lunch_combo cna_crespo4g-userdebug
 add_lunch_combo cna_grouper-userdebug
-add_lunch_combo cna_maguro-userdebug
-add_lunch_combo cna_stingray-userdebug
-add_lunch_combo cna_stingray_cdma-userdebug
-add_lunch_combo cna_toro-userdebug
-add_lunch_combo cna_toroplus-userdebug
-add_lunch_combo cna_umts_everest-userdebug
-add_lunch_combo cna_wingray-userdebug
 
