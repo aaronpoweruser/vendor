@@ -1,6 +1,6 @@
 # Inherit common stuff
 $(call inherit-product, vendor/cna/config/common.mk)
-$(call inherit-product, vendor/cna/config/common_drm_tablet.mk)
+#$(call inherit-product, vendor/cna/config/common_drm_tablet.mk)
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/tablet
 

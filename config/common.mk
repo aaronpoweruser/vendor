@@ -103,8 +103,8 @@ PRODUCT_PACKAGES += \
 # Extra Optional packages
 PRODUCT_PACKAGES += \
     Trebuchet \
-    ParanoidPrefrences \
-    ParanoidWallpapers 
+    ParanoidPreferences 
+
 # Extra tools
 PRODUCT_PACKAGES += \
     openvpn \
@@ -119,10 +119,13 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/common
 include vendor/cna/config/themes_common.mk
 
 PRODUCT_VERSION_MAJOR = 1
-PRODUCT_VERSION_MINOR = 0
+PRODUCT_VERSION_MINOR = 1
 PRODUCT_VERSION_MAINTENANCE = 0
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JRO03L
+
+TARGET_CUSTOM_RELEASETOOL := tools/squisher
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JRO03R
 
 ifdef CNA_NIGHTLY
     PRODUCT_PROPERTY_OVERRIDES += \

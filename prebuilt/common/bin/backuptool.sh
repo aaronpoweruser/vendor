@@ -5,7 +5,21 @@
 
 export C=/tmp/backupdir
 export S=/system
-export V=3
+export V=PARANOIDANDROID
+
+# Mount /system if it is not already mounted
+mount_system() {
+if ! mount | grep -q " $S " ; then
+  mount $S
+fi
+}
+
+# Unmount /system unless it is already unmounted
+umount_system() {
+if mount | grep -q " $S " ; then
+  umount $S
+fi
+}
 
 # Preserve /system/addon.d in /tmp/addon.d
 preserve_addon_d() {
@@ -22,8 +36,9 @@ restore_addon_d() {
 
 # Proceed only if /system is the expected major version
 check_prereq() {
-if ( ! grep -q "^ro.cnaversion=Codename-Android-$V.*" /system/build.prop ); then
+if ( ! grep -q "^ro.pa.version=$V.*" /system/build.prop ); then
   echo "Not backing up files from incompatible version."
+  umount_system
   exit 127
 fi
 }
@@ -38,18 +53,20 @@ done
 case "$1" in
   backup)
     mkdir -p $C
-    check_prereq
+    mount_system
     preserve_addon_d
     run_stage pre-backup
     run_stage backup
     run_stage post-backup
+    umount_system
   ;;
   restore)
-    check_prereq
+    mount_system
     run_stage pre-restore
     run_stage restore
     run_stage post-restore
     restore_addon_d
+    umount_system
     rm -rf $C
     sync
   ;;
