@@ -87,8 +87,6 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    VideoEditor \
-    VoiceDialer \
     SoundRecorder \
     Basic \
     HoloSpiralWallpaper \
