@@ -18,7 +18,7 @@
 -->
 <resources>
     <!-- 2 minutes for default screen timeout -->
-    <integer name="def_screen_off_timeout">120000</integer>
+    <integer name="def_screen_off_timeout">20000</integer>
     <!-- Set the automatic brightness mode on by default -->
     <bool name="def_screen_brightness_automatic_mode">true</bool>
     <!-- Allow side loading -->
@@ -27,4 +27,8 @@
     <bool name="def_sound_effects_enabled">false</bool>
     <!-- Default for Lockscreen sounds enabled -->
     <integer name="def_lockscreen_sounds_enabled">0</integer>
+    <!-- This device only uses WiFi network -->
+    <bool name="def_wifi_on">true</bool>
+    <!-- 0 == default, 1 == never while plugged, 2 == never -->	
+    <integer name="def_wifi_sleep_policy">2</integer>
 </resources>
