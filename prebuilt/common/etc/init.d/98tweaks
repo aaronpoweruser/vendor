@@ -5,3 +5,6 @@
 busybox mount -o remount,noatime,data=writeback,nodiratime,commit=60,discard,noauto_da_alloc,barrier=0,nobh /system
 busybox mount -o remount,noatime,data=writeback,nodiratime,commit=15,discard /data
 busybox mount -o remount,noatime,data=writeback,nodiratime,discard,noauto_da_alloc,commit=30,barrier=0,nobh /cache
+
+#sql Vacum
+for i in \ `find /data -iname "*.db"` do \ sqlite3 $i 'VACUUM;'; done 
