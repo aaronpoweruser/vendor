@@ -1,2 +1,2 @@
-add_lunch_combo cna_grouper-userdebug
+add_lunch_combo pa_cna_grouper-userdebug
 

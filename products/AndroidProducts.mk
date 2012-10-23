@@ -1,5 +1,5 @@
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cna_grouper.mk 
+    $(LOCAL_DIR)/pa_cna_grouper.mk 
 
 
