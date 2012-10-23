@@ -190,16 +190,16 @@ else
     endif
 endif
 
-#ifdef CNA_NIGHTLY
-#    PRODUCT_PROPERTY_OVERRIDES += \
-#        ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR)-NIGHTLY-$(shell date +%m%d%Y)-$(PRODUCT_RELEASE_NAME)
-#else
-#    ifdef CNA_RELEASE
-#        PRODUCT_PROPERTY_OVERRIDES += \
-#            ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)
-#    else
-#        PRODUCT_PROPERTY_OVERRIDES += \
-#            ro.modversion=Cookies&Cream-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
+ifdef CNA_NIGHTLY
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR)-NIGHTLY-$(shell date +%m%d%Y)-$(PRODUCT_RELEASE_NAME)
+else
+    ifdef CNA_RELEASE
+        PRODUCT_PROPERTY_OVERRIDES += \
+            ro.modversion=Codename-Android-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PRODUCT_RELEASE_NAME)
+    else
+        PRODUCT_PROPERTY_OVERRIDES += \
+            ro.modversion=Cookies&Cream-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
     #NIGHTLY-$(shell date +%m%d)
-#    endif
-#endif
+    endif
+endif
