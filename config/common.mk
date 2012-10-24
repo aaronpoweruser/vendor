@@ -27,12 +27,12 @@ PRODUCT_COPY_FILES += \
 
 # Compcache/Zram support
 PRODUCT_COPY_FILES += \
-    vendor/cna/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
     vendor/cna/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/cna/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 PRODUCT_COPY_FILES +=  \
-    vendor/cna/proprietary/supersu/su:system/xbin/su
+    vendor/pa/prebuilt/common/apk/SuperSU.apk:system/app/SuperSU.apk \
+    vendor/pa/prebuilt/common/xbin/su:system/xbin/su
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
@@ -78,8 +78,7 @@ PRODUCT_PACKAGES += \
     Camera \
     Development \
     LatinIME \
-    SpareParts \
-    Superuser
+    SpareParts 
 
 # Optional packages
 PRODUCT_PACKAGES += \
@@ -104,6 +103,10 @@ PRODUCT_PACKAGES += \
     e2fsck \
     mke2fs \
     tune2fs
+
+#CM-specific init file
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/cna/overlay/common
@@ -148,6 +151,9 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
     vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
+PRODUCT_COPY_FILES += \
+    vendor/cna/prebuilt/common/apk/TitaniumBackup_latest.apk:system/app/TitaniumBackup_latest.apk
+
 # Add CM release version
 CM_RELEASE := true
 CM_BUILD := $(BOARD)
@@ -172,7 +178,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.pa.version=$(VERSION)
 
 
-TARGET_CUSTOM_RELEASETOOL := tools/squisher
+TARGET_CUSTOM_RELEASETOOL := vendor/cna/tools/squisher
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID=JZO54K
 
